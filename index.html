@@ -418,24 +418,74 @@
     .cat-card { max-width:100%; width:100%; padding:28px 20px; }
     #categoryDetail .layout-2col { padding:16px; }
   }
+
+  /* ───── Heart Anatomy 3D: original look, scoped to #heart ───── */
+  #heart.tab-content{padding:0;min-height:0}
+  #heart{--bg:#0b0f15;--panel:#121923;--panel2:#18212e;--line:#243044;--tx:#e6edf6;--mut:#8b9bb0;--acc:#4cc2ff;--red:#ff5a4f;--grn:#46d39a;
+    background:var(--bg);color:var(--tx);font:13px/1.45 system-ui,Segoe UI,Roboto,sans-serif}
+  #heart *{box-sizing:border-box}
+  #heart .h-grid{display:grid;grid-template-columns:270px 1fr 330px;height:max(640px,calc(100vh - 140px))}
+  #heart aside{background:var(--panel);overflow:auto;padding:12px 16px}
+  #heart #left{border-right:1px solid var(--line)}
+  #heart #right{border-left:1px solid var(--line)}
+  #heart h1{font-size:16px;margin:0 0 2px;font-weight:700;color:var(--tx)}
+  #heart .sub{color:var(--mut);font-size:12px;margin-bottom:10px}
+  #heart h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:16px 0 6px;font-weight:700;padding:0;border:0;display:block}
+  #heart h2::before{display:none}
+  #heart label.chk{display:flex;align-items:center;gap:8px;padding:3px 0;cursor:pointer;font-size:13px;color:var(--tx)}
+  #heart input[type=checkbox]{accent-color:var(--acc)}
+  #heart input[type=range]{width:100%;accent-color:var(--acc)}
+  #heart .row{display:flex;flex-wrap:wrap;gap:5px}
+  #heart button{background:var(--panel2);color:var(--tx);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font:inherit;cursor:pointer;font-weight:400}
+  #heart button:hover{border-color:var(--acc);background:var(--panel2);color:var(--tx)}
+  #heart button.on{background:#12405a;border-color:var(--acc)}
+  #heart .chip{min-width:44px;text-align:center;position:relative;padding:4px 7px}
+  #heart .chip .st{position:absolute;top:-6px;right:-3px;font-size:11px;font-weight:700}
+  #heart .chip .st.up{color:var(--red)}#heart .chip .st.dn{color:#5aa9ff}
+  #heart .grp{color:var(--mut);font-size:11px;margin:8px 0 3px}
+  #heart #stage{position:relative;min-width:0;min-height:0}
+  #heart #stage canvas{display:block;width:100%;height:100%}
+  #heart #hint{position:absolute;left:12px;bottom:10px;color:var(--mut);font-size:12px;pointer-events:none;text-shadow:0 1px 3px #000}
+  #heart #tip{position:absolute;pointer-events:none;background:#000c;border:1px solid var(--line);padding:3px 7px;border-radius:5px;font-size:12px;display:none;white-space:nowrap}
+  #heart #views{position:absolute;top:10px;left:10px;display:flex;gap:5px;flex-wrap:wrap;z-index:2}
+  #heart #bull{width:100%;aspect-ratio:1;display:block;cursor:pointer}
+  #heart #ecg{width:100%;height:150px;display:block;border-radius:6px;background:#0a1118;border:1px solid var(--line)}
+  #heart #info{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin:10px 0;min-height:110px;font-size:13px;line-height:1.45;color:var(--tx)}
+  #heart #info b.t{font-size:14px}
+  #heart .tag{display:inline-block;padding:0 7px;border-radius:9px;font-size:11px;margin:1px 2px 1px 0;border:1px solid var(--line)}
+  #heart .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--mut)}
+  #heart .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+  #heart select{width:100%;background:var(--panel2);color:var(--tx);border:1px solid var(--line);border-radius:6px;padding:5px;font:inherit}
+  #heart .note{color:var(--mut);font-size:11px;margin-top:10px}
+  #heart #ecgctl{margin-top:10px}
+  #heart:fullscreen .h-grid{height:100vh}
+  #heart:fullscreen{overflow:auto}
+  .container.wide{max-width:none;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(15,25,32,0.92)}
+  body.hwide{padding:8px}
+  @media(max-width:900px){
+    #heart .h-grid{display:flex;flex-direction:column;height:auto}
+    #heart #stage{height:62vh;flex:none}
+    #heart aside{border:0!important}
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <header>
     <h1>Cardiac team by QSMH</h1>
-    <p>Anatomy &amp; Plane • Flow • Drug Calculator</p>
+    <p>Anatomy &amp; Plane • Flow • Drug Calculator • Heart Anatomy 3D</p>
   </header>
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="overview">Overview MRI</button>
     <button class="tab-btn" data-tab="calculator">Drug Calculator</button>
+    <button class="tab-btn" data-tab="heart">Heart Anatomy 3D</button>
   </div>
 
   <div class="tab-content active" id="overview">
     <div class="category-picker" id="categoryPicker">
-      <div class="cat-card" data-category="Localize" data-first="loc_2ch"><div class="cat-icon">📍</div><div class="cat-name">Localize</div><div class="cat-subtitle">การวาง Localizer</div><div class="cat-count">4 views</div><div class="cat-arrow">→</div></div>
-      <div class="cat-card" data-category="Cine" data-first="cine_2ch"><div class="cat-icon">🫀</div><div class="cat-name">Cine</div><div class="cat-subtitle">Anatomy &amp; Plane</div><div class="cat-count">9 views</div><div class="cat-arrow">→</div></div>
+      <div class="cat-card" data-category="LocalizeCine" data-first="loc_2ch"><div class="cat-icon">📍</div><div class="cat-name">Localize &amp; Cine</div><div class="cat-subtitle">การวาง Localizer • Anatomy &amp; Plane</div><div class="cat-count">13 views</div><div class="cat-arrow">→</div></div>
+      <div class="cat-card" data-category="Mapping" data-first="t1_native"><div class="cat-icon">🫀</div><div class="cat-name">Parametric Mapping</div><div class="cat-subtitle">T1 &amp; T2 Mapping</div><div class="cat-count">3 views</div><div class="cat-arrow">→</div></div>
       <div class="cat-card" data-category="Flow" data-first="pc_ao"><div class="cat-icon">📈</div><div class="cat-name">Flow</div><div class="cat-subtitle">Phase Contrast</div><div class="cat-count">11 views</div><div class="cat-arrow">→</div></div>
     </div>
     <div id="categoryDetail">
@@ -443,6 +493,78 @@
       <div class="layout-2col"><div class="view-list" id="viewList"></div><div class="view-display"><div class="breadcrumb" id="viewBreadcrumb"></div><h2 id="viewTitle"></h2><div class="view-image" id="viewImage"><span class="placeholder">Loading...</span></div><div class="view-description" id="viewDesc"></div></div></div>
     </div>
   </div>
+
+  <div class="tab-content" id="heart">
+<div class="h-grid">
+<aside id="left">
+ <h1>Heart Anatomy 3D</h1>
+ <div class="sub">AHA 17-segment · coronaries · ECG leads</div>
+
+ <h2>Layers</h2>
+ <label class="chk"><input type="checkbox" id="L_lv" checked> LV – 17 AHA segments</label>
+ <label class="chk"><input type="checkbox" id="L_nums" checked> Segment numbers</label>
+ <label class="chk"><input type="checkbox" id="L_cor" checked> Coronary arteries</label>
+ <label class="chk"><input type="checkbox" id="L_rv" checked> RV, atria &amp; great vessels</label>
+ <label class="chk"><input type="checkbox" id="L_ecg" checked> ECG electrodes</label>
+ <label class="chk"><input type="checkbox" id="L_chest" checked> Chest wall</label>
+ <label class="chk"><input type="checkbox" id="L_beat" checked> Heartbeat</label>
+
+ <h2>LV colouring</h2>
+ <div class="row" id="colorBtns">
+  <button data-m="segment" class="on">Segments</button>
+  <button data-m="territory">Coronary territory</button>
+  <button data-m="plain">Plain</button>
+ </div>
+ <h2>Heart opacity</h2>
+ <input type="range" id="opac" min="25" max="100" value="95">
+
+ <h2>Coronary occlusion (STEMI demo)</h2>
+ <select id="occ">
+  <option value="none">None</option>
+  <option value="LAD">LAD occlusion</option>
+  <option value="LCx">LCx occlusion</option>
+  <option value="RCA">RCA occlusion (distal to RV branches)</option>
+  <option value="RCAp">Proximal RCA (inferior + RV infarct)</option>
+ </select>
+ <div class="note">Occluding a vessel marks the affected AHA segments and shows ST elevation (↑) / reciprocal depression (↓) on the leads.</div>
+
+ <h2>ECG leads</h2>
+ <div class="grp">Precordial</div><div class="row" id="g_pre"></div>
+ <div class="grp">Right-sided</div><div class="row" id="g_rt"></div>
+ <div class="grp">Posterior</div><div class="row" id="g_post"></div>
+ <div class="grp">Limb</div><div class="row" id="g_limb"></div>
+ <div class="note">Educational model, schematic anatomy. Not for clinical decision-making.</div>
+</aside>
+
+<main id="stage">
+ <div id="views"></div>
+ <div id="tip"></div>
+ <div id="hint">Drag to rotate · scroll to zoom · click a segment, artery or electrode</div>
+</main>
+
+<aside id="right">
+ <canvas id="bull" width="600" height="600"></canvas>
+ <div class="legend" id="legend"></div>
+ <div id="info"></div>
+ <canvas id="ecg"></canvas>
+ <div id="ecgctl">
+  <div class="row" style="align-items:center">
+   <button id="play" class="on" title="Play / pause">❚❚ Pause</button>
+   <button id="mode" title="Scrolling strip or monitor-style sweep">Mode: Scroll</button>
+   <span style="margin-left:auto"><b id="bpmOut">72</b> <span class="sub">bpm</span></span>
+  </div>
+  <label class="sub" for="bpm" style="display:block;margin:8px 0 2px">Patient's heart rate</label>
+  <input type="range" id="bpm" min="30" max="180" value="72">
+  <div class="row" style="margin-top:6px">
+   <button data-bpm="45">Bradycardia 45</button>
+   <button data-bpm="72">Normal 72</button>
+   <button data-bpm="130">Tachycardia 130</button>
+  </div>
+  <div id="rrout" class="note"></div>
+ </div>
+</aside>
+</div>
+</div>
 
   <div class="tab-content" id="calculator">
     <div class="calc-tabs">
@@ -544,14 +666,14 @@
 
     // Cine 2CH RV / Aortic Valve → page 24
     "cine_2chrv":{ title: "Cine 2CH Rt. Ventricle", image: "cine_2chrv.png", desc: `2-Chamber view (Vertical LAX) → Rt.Atrium และ Rt.Ventricle  <div class="tip">💡<ul><li>Cine 4CH: ขนานกับ septum </li></ul></div>` },
-    "aov_view":  { title: "Aortic Valve (Cine)", image: "aortic_valve.png", desc: `Aortic Valve <div class="tip">💡<ul><li>วาง 1-3 slices คลุม aortic valve</li><li>ดู Valve area ใน systole &amp; diastole</li></ul></div>` },
+    "aov_view":  { title: "Aortic Valve ", image: "aortic_valve.png", desc: `Aortic Valve <div class="tip"><ul><li>วาง 1-3 slices คลุม aortic valve</li><li>ดู Valve area ใน systole &amp; diastole</li></ul></div>` },
 
     // In & Out-flow tract → page 25
     "cine_lvot": { title: "Cine LVOT", image: "lvot.png", desc: `Left Ventricular Outflow Tract view (ดู Aortic valve และ subaortic area)<ul><li> FOV Coronal</li><li>วางจาก Cine 3CH</li></ul><div class="tip">⚠️ ระวัง Valve สะบัด — ให้ดูทั้ง Systolic &amp; Diastolic</div>` },
     "cine_rvot": { title: "Cine RVOT", image: "rvot.png", desc: `Right Ventricular Outflow Tract view<ul><li>วางจาก Axial FIESTA และ RVIT</li><li>วางเส้นขนานกับ <b>Pulmonary trunk</b></li></ul>` },
 
     // How to RVIT / Mitral Valve → page 26
-    "rvit":      { title: "Cine RVIT (Right Ventricular Inflow Tract)", image: "rvit.png", desc: `ดู Atrioventricular valve และ Inflow ของ Rt.ventricle<ul><li>วางจาก SAX และ 4CH</li><li>ตัดผ่าน RA → RV ผ่าน tricuspid valve</li></ul>` },
+    "cine_rvit":      { title: "Cine RVIT ", image: "rvit.png", desc: `ดู Atrioventricular valve และ Inflow ของ Rt.ventricle<ul><li>วางจาก SAX และ 4CH</li><li>ตัดผ่าน RA → RV ผ่าน tricuspid valve</li></ul>` },
 
     // Pulmonic Valve → page 27
     // Phase contrast venc table → page 28
@@ -583,6 +705,11 @@
 
 
 
+    // Parametric mapping — t1_native.png / t1_post_gd.png / t2_map.png อยู่ในโฟลเดอร์เดียวกัน
+    "t1_native": { title: "T1 Map — Native (Pre-contrast)", image: "t1_native.png", desc: `T1 mapping ก่อนฉีด Gd — SAX 3 ระดับ: <b>Base / Mid / Apex</b><ul><li>วาง plane จาก Cine 2CH และ 4CH</li><li>ตั้งฉากกับ long axis ของ LV (แนวเดียวกับ SAX stack)</li></ul><div class="tip">💡 ต้องทำ <b>ก่อนฉีด contrast</b></div>` },
+    "t1_post":   { title: "T1 Map — Post Gd", image: "t1_post_gd.png", desc: `T1 mapping หลังฉีด Gd — SAX 3 ระดับ: <b>Base / Mid / Apex</b><ul><li>วาง plane จาก Cine 2CH และ 4CH</li><li>ใช้ตำแหน่ง slice <b>เดียวกับ T1 Native</b></li></ul><div class="tip">💡 ใช้คู่กับ T1 Native เพื่อคำนวณ ECV — slice ต้องตรงกัน</div>` },
+    "t2_map":    { title: "T2 Map", image: "t2_map.png", desc: `T2 mapping — SAX 3 ระดับ: <b>Base / Mid / Apex</b><ul><li>วาง plane จาก Cine 2CH และ 4CH</li><li>ตั้งฉากกับ long axis ของ LV ตำแหน่งเดียวกับ T1 map</li></ul>` },
+
     // Aortic valve plane (6 ระดับ - รวมเป็นรูปเดียว) → page 33
     "aov_levels":{ title: "Aortic Valve Plane (6 ระดับ)", image: "aortic_valve_plane.png", desc: `ระดับการวาง plane ของ aortic valve และ ascending aorta<ul><li><b>1.</b> Below Aortic valve</li><li><b>2.</b> Aortic valve (AoV)</li><li><b>3.</b> Aortic sinus</li><li><b>4.</b> Sinotubular junction</li><li><b>5.</b> Ascending aorta (AAO)</li><li><b>6.</b> Ascending aorta below brachiocephalic trunk</li></ul>` }
   };
@@ -606,7 +733,7 @@
     document.getElementById('viewDesc').innerHTML = data.desc || '';
     const imgBox = document.getElementById('viewImage');
     if (data.image) {
-      imgBox.innerHTML = `<img src="${data.image}" alt="${data.title}" onclick="openLightbox(this.src)">`;
+      imgBox.innerHTML = `<img src="${data.image}" alt="${data.title}" onclick="openLightbox(this.src)" onerror="this.outerHTML='<span class=&quot;placeholder&quot;>ยังไม่ได้ใส่รูป (${data.image})</span>'">`;
     } else {
       imgBox.innerHTML = `<span class="placeholder">ยังไม่ได้ใส่รูป</span>`;
     }
@@ -617,9 +744,23 @@
     document.getElementById('lightbox').classList.add('show');
   }
 
-  const catItems={Localize:[{v:'loc_2ch',l:'Localize 2CH'},{v:'loc_4ch',l:'Localize 4CH'},{v:'loc_sax',l:'Localize SAX'},{v:'loc_3ch',l:'Localize 3CH'}],Cine:[{v:'cine_2ch',l:'Cine 2CH'},{v:'cine_4ch',l:'Cine 4CH'},{v:'cine_sax',l:'Cine SAX'},{v:'cine_3ch',l:'Cine 3CH'},{v:'cine_2chrv',l:'Cine 2CH Rt. Ventricle'},{v:'cine_lvot',l:'Cine LVOT'},{v:'cine_rvot',l:'Cine RVOT'},{v:'rvit',l:'RVIT'},{v:'aov_view',l:'Aortic Valve'}],Flow:[{v:'pc_ao',l:'PC AO (Aorta)'},{v:'pc_ao_cc',l:'PC AO Candy Cane'},{v:'pc_pa',l:'PC PA (MPA)'},{v:'pc_rpa',l:'PC RPA'},{v:'pc_lpa',l:'PC LPA'},{v:'pc_rpv',l:'PC RPV'},{v:'pc_lpv',l:'PC LPV'},{v:'pc_svc',l:'PC SVC'},{v:'pc_dao',l:'PC DAO'},{v:'venc_table',l:'📊 Venc Table'},{v:'aov_levels',l:'Aortic Valve Plane'}]};
-  const catMeta={Localize:'การวาง Localizer',Cine:'Anatomy & Plane',Flow:'Phase Contrast'};
-  function openCategory(cat,first){const el=document.getElementById('viewList');el.innerHTML='';catItems[cat].forEach((it,i)=>{const d=document.createElement('div');d.className='view-item'+(i===0?' active':'');d.dataset.view=it.v;d.dataset.cat=cat;d.textContent=it.l;d.addEventListener('click',()=>{el.querySelectorAll('.view-item').forEach(x=>x.classList.remove('active'));d.classList.add('active');selectView(it.v,cat);});el.appendChild(d);});document.getElementById('detailTitle').textContent=cat;document.getElementById('detailSub').textContent=catMeta[cat];document.getElementById('categoryPicker').style.display='none';document.getElementById('categoryDetail').classList.add('active');selectView(first,cat);}
+  const catItems={LocalizeCine:[{g:'Localize'},{v:'loc_2ch',l:'Localize 2CH'},{v:'loc_4ch',l:'Localize 4CH'},{v:'loc_sax',l:'Localize SAX'},{v:'loc_3ch',l:'Localize 3CH'},{g:'Cine'},{v:'cine_2ch',l:'Cine 2CH'},{v:'cine_4ch',l:'Cine 4CH'},{v:'cine_sax',l:'Cine SAX'},{v:'cine_3ch',l:'Cine 3CH'},{v:'cine_2chrv',l:'Cine 2CH Rt. Ventricle'},{v:'cine_lvot',l:'Cine LVOT'},{v:'cine_rvot',l:'Cine RVOT'},{v:'cine_rvit',l:'Cine RVIT'},{v:'aov_view',l:'Cine AVV'}],Mapping:[{g:'T1 Mapping'},{v:'t1_native',l:'T1 Native'},{v:'t1_post',l:'T1 Post Gd'},{g:'T2 Mapping'},{v:'t2_map',l:'T2 Map'}],Flow:[{v:'pc_ao',l:'PC AO (Aorta)'},{v:'pc_ao_cc',l:'PC AO Candy Cane'},{v:'pc_pa',l:'PC PA (MPA)'},{v:'pc_rpa',l:'PC RPA'},{v:'pc_lpa',l:'PC LPA'},{v:'pc_rpv',l:'PC RPV'},{v:'pc_lpv',l:'PC LPV'},{v:'pc_svc',l:'PC SVC'},{v:'pc_dao',l:'PC DAO'},{v:'venc_table',l:'📊 Venc Table'},{v:'aov_levels',l:'Aortic Valve Plane'}]};
+  const catMeta={LocalizeCine:{t:'Localize & Cine',s:'การวาง Localizer • Anatomy & Plane'},Mapping:{t:'Parametric Mapping',s:'T1 & T2 Mapping'},Flow:{t:'Flow',s:'Phase Contrast'}};
+  function openCategory(cat,first){
+    const el=document.getElementById('viewList');el.innerHTML='';
+    let group=catMeta[cat].t, firstGroup=group, isFirst=true;
+    catItems[cat].forEach(it=>{
+      if(it.g){group=it.g;const h=document.createElement('div');h.className='category-header';h.style.marginTop=el.children.length?'16px':'0';h.textContent=it.g;el.appendChild(h);return;}
+      const crumb=group;
+      if(isFirst) firstGroup=crumb;
+      const d=document.createElement('div');d.className='view-item'+(isFirst?' active':'');isFirst=false;
+      d.dataset.view=it.v;d.textContent=it.l;
+      d.addEventListener('click',()=>{el.querySelectorAll('.view-item').forEach(x=>x.classList.remove('active'));d.classList.add('active');selectView(it.v,crumb);});
+      el.appendChild(d);
+    });
+    document.getElementById('detailTitle').textContent=catMeta[cat].t;document.getElementById('detailSub').textContent=catMeta[cat].s;
+    document.getElementById('categoryPicker').style.display='none';document.getElementById('categoryDetail').classList.add('active');selectView(first,firstGroup);
+  }
   document.querySelectorAll('.cat-card').forEach(c=>c.addEventListener('click',()=>openCategory(c.dataset.category,c.dataset.first)));
   document.getElementById('btnBack').addEventListener('click',()=>{document.getElementById('categoryDetail').classList.remove('active');document.getElementById('categoryPicker').style.display='flex';});
 
@@ -802,6 +943,424 @@
     `;
     document.getElementById('dp_result').classList.add('show');
   }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+window.initHeart=function(){
+const V3 = THREE.Vector3;
+const $ = id => document.getElementById(id);
+
+/* ───────── LV geometry frame (body axes: +X patient left, +Y up, +Z anterior) ───────── */
+const L = 1.5, R = 0.55;
+const axisA = new V3(0.6,-0.55,0.45).normalize();                      // base → apex
+const antA  = new V3(0,0,1).addScaledVector(axisA,-axisA.z).normalize(); // anterior
+const sepA  = new V3().crossVectors(axisA, antA).normalize();           // septal (toward patient's right)
+function frame(u, phiDeg){
+  const ph = phiDeg*Math.PI/180, cu = Math.cos(u), su = Math.sin(u);
+  const rad = antA.clone().multiplyScalar(Math.cos(ph)).addScaledVector(sepA, Math.sin(ph));
+  const p = axisA.clone().multiplyScalar(L*su).addScaledVector(rad, R*cu);
+  const n = axisA.clone().multiplyScalar(su/L).addScaledVector(rad, cu/R).normalize();
+  return {p,n};
+}
+function surf(u,phi,off=0){ const f=frame(u,phi); return f.p.addScaledVector(f.n,off); }
+
+/* ───────── AHA 17 segments ───────── */
+const BASAL = ['anterior','anteroseptal','inferoseptal','inferior','inferolateral','anterolateral'];
+const APICAL = ['anterior','septal','inferior','lateral'];
+const TERR = {1:'LAD',2:'LAD',3:'RCA',4:'RCA',5:'LCx',6:'LCx',7:'LAD',8:'LAD',9:'RCA',10:'RCA',11:'LCx',12:'LCx',13:'LAD',14:'LAD',15:'RCA',16:'LCx',17:'LAD'};
+const ART_COL = {LAD:'#ff5a4f', LCx:'#b583ff', RCA:'#ffb020', LM:'#ff8a3d'};
+const segs = [];
+for(let i=0;i<6;i++){ const c=60*i; segs.push({id:1+i,ring:0,lvl:'Basal',name:BASAL[i],u0:0,u1:.35,p0:c-30,p1:c+30,c}); }
+for(let i=0;i<6;i++){ const c=60*i; segs.push({id:7+i,ring:1,lvl:'Mid',name:BASAL[i],u0:.35,u1:.72,p0:c-30,p1:c+30,c}); }
+for(let i=0;i<4;i++){ const c=90*i; segs.push({id:13+i,ring:2,lvl:'Apical',name:APICAL[i],u0:.72,u1:1.08,p0:c-45,p1:c+45,c}); }
+segs.push({id:17,ring:3,lvl:'',name:'Apex',u0:1.08,u1:Math.PI/2,p0:0,p1:360,c:0});
+segs.forEach(s=>{ s.full = s.id===17 ? 'Apex' : `${s.lvl} ${s.name}`; s.terr=TERR[s.id];
+  const light=[58,50,42,34][s.ring]; s.segCol=new THREE.Color(`hsl(${(s.c*0.95+10)%360},68%,${light}%)`);
+  s.terrCol=new THREE.Color(ART_COL[s.terr]); });
+const segById = id => segs[id-1];
+
+/* ───────── three.js scene ───────── */
+const stage = $('stage');
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+stage.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#0b0f15');
+const camera = new THREE.PerspectiveCamera(40,1,.1,100);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+const HP = new V3(0.1,0.45,-0.05);                  // base-centre of LV in world
+const TARGET = HP.clone().addScaledVector(axisA, L*.4);
+controls.target.copy(TARGET); camera.position.set(2.8,1.6,6.3); controls.update();
+scene.add(new THREE.HemisphereLight('#bcd4ff','#201418',.85));
+const key = new THREE.DirectionalLight('#fff',.9); key.position.set(3,4,6); scene.add(key);
+const rim = new THREE.DirectionalLight('#6fa8ff',.4); rim.position.set(-4,1,-5); scene.add(rim);
+
+const heart = new THREE.Group(); heart.position.copy(HP); scene.add(heart);
+const lvGroup = new THREE.Group(), corGroup = new THREE.Group(), anaGroup = new THREE.Group(), numGroup = new THREE.Group();
+heart.add(lvGroup, corGroup, anaGroup, numGroup);
+
+function label(text,{fg='#fff',bg='rgba(8,12,18,.78)',s=.26,depth=true,w=1}={}){
+  const c=document.createElement('canvas'); c.width=128*w; c.height=128; const g=c.getContext('2d');
+  g.fillStyle=bg; g.beginPath();
+  if(w===1) g.arc(64,64,52,0,7); else g.roundRect ? g.roundRect(6,28,c.width-12,72,30) : g.rect(6,28,c.width-12,72);
+  g.fill(); g.fillStyle=fg; g.font='bold '+(w===1?60:54)+'px system-ui'; g.textAlign='center'; g.textBaseline='middle';
+  g.fillText(text,c.width/2,66);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthTest:depth}));
+  sp.scale.set(s*w,s,1); sp.renderOrder=10; return sp;
+}
+
+/* LV segment meshes */
+const pickables = [];
+const segMeshes = [];
+segs.forEach(s=>{
+  const nu=Math.max(3,Math.ceil((s.u1-s.u0)/.05)), np=Math.max(4,Math.ceil((s.p1-s.p0)/5));
+  const pos=[],nor=[],idx=[];
+  for(let i=0;i<=nu;i++)for(let j=0;j<=np;j++){
+    const f=frame(s.u0+(s.u1-s.u0)*i/nu, s.p0+(s.p1-s.p0)*j/np);
+    pos.push(f.p.x,f.p.y,f.p.z); nor.push(f.n.x,f.n.y,f.n.z);
+  }
+  for(let i=0;i<nu;i++)for(let j=0;j<np;j++){const k=i*(np+1)+j; idx.push(k,k+np+1,k+1,k+1,k+np+1,k+np+2);}
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('normal',new THREE.Float32BufferAttribute(nor,3)); g.setIndex(idx);
+  const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:s.segCol,roughness:.45,metalness:.05,side:THREE.DoubleSide,transparent:true}));
+  m.userData={type:'seg',id:s.id}; s.mesh=m; lvGroup.add(m); pickables.push(m); segMeshes.push(m);
+  // outline
+  const pts=[]; const edge=(a,b,fn,n)=>{for(let i=0;i<=n;i++)pts.push(fn(a+(b-a)*i/n));};
+  const F=(u,p)=>surf(u,p,.004);
+  if(s.id===17){ edge(0,360,p=>F(s.u0,p),72); }
+  else{
+    edge(s.p0,s.p1,p=>F(s.u0,p),12); edge(s.u0,s.u1,u=>F(u,s.p1),10);
+    edge(s.p1,s.p0,p=>F(s.u1,p),12); edge(s.u1,s.u0,u=>F(u,s.p0),10);
+  }
+  lvGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:'#05080c'})));
+  // number
+  const uc=s.id===17?Math.PI/2:(s.u0+s.u1)/2, pc=(s.p0+s.p1)/2;
+  const lb=label(String(s.id),{s:.2,depth:true}); lb.position.copy(surf(uc,pc,.07)); numGroup.add(lb);
+});
+
+/* Other anatomy */
+const anaMat=(c,o=.55)=>new THREE.MeshStandardMaterial({color:c,roughness:.6,transparent:true,opacity:o,depthWrite:false,side:THREE.DoubleSide});
+function ellipsoid(center,rA,rS,ra,mat){
+  const m=new THREE.Mesh(new THREE.SphereGeometry(1,40,28),mat);
+  const bm=new THREE.Matrix4().makeBasis(antA,sepA,axisA); m.setRotationFromMatrix(bm);
+  m.scale.set(rA,rS,ra); m.position.copy(center); return m;
+}
+const dir60 = antA.clone().multiplyScalar(Math.cos(1.05)).addScaledVector(sepA,Math.sin(1.05));
+const RV = ellipsoid(axisA.clone().multiplyScalar(L*.36).addScaledVector(dir60,R*.82), R*.62, R*.55, L*.5, anaMat('#b9708a',.42));
+RV.userData={type:'ana',name:'Right ventricle'}; anaGroup.add(RV); pickables.push(RV);
+const RA = new THREE.Mesh(new THREE.SphereGeometry(1,32,24),anaMat('#c27b8a',.5)); RA.scale.set(.42,.5,.42); RA.position.set(-.85,.15,.05); RA.userData={type:'ana',name:'Right atrium'};
+const LA = new THREE.Mesh(new THREE.SphereGeometry(1,32,24),anaMat('#c27b8a',.5)); LA.scale.set(.55,.34,.4); LA.position.set(.1,.3,-.55); LA.userData={type:'ana',name:'Left atrium'};
+anaGroup.add(RA,LA); pickables.push(RA,LA);
+function vessel(pts,r,col,name,o=.85){
+  const m=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(p=>new V3(...p))),48,r,14),anaMat(col,o));
+  m.userData={type:'ana',name}; anaGroup.add(m); pickables.push(m); return m;
+}
+vessel([[-.15,.1,.15],[-.18,.7,.1],[-.05,1.15,-.05],[.4,1.35,-.3],[.75,1.1,-.5],[.8,.5,-.65],[.8,-.5,-.7]],.2,'#d2574f','Aorta');
+vessel([[.05,.2,.65],[.15,.85,.35],[.3,1.1,0]],.17,'#5b7fc7','Pulmonary trunk');
+vessel([[.3,1.1,0],[.9,1.2,-.3]],.11,'#5b7fc7','Left pulmonary artery');
+vessel([[.3,1.1,0],[-.7,1.1,-.25]],.11,'#5b7fc7','Right pulmonary artery');
+vessel([[-.75,.5,0],[-.7,1.7,-.05]],.15,'#4a6fb0','Superior vena cava');
+vessel([[-.8,-.2,0],[-.85,-1.1,-.2]],.16,'#4a6fb0','Inferior vena cava');
+
+/* Coronary arteries */
+const arteries=[];
+const AO = [-.15,.1,.15];
+function artery(id,group,name,r,pts,opt={}){
+  const v=pts.map(p=>p==='AO'?new V3(...AO):surf(p[0],p[1],p[2]??.05));
+  const m=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(v),Math.max(40,pts.length*14),r,10),
+    new THREE.MeshStandardMaterial({color:ART_COL[group],roughness:.35,emissive:ART_COL[group],emissiveIntensity:.18}));
+  m.userData={type:'art',id,group,name}; m.renderOrder=3; corGroup.add(m); pickables.push(m); arteries.push(m); return m;
+}
+artery('LM','LM','Left main (LMCA)',.05,['AO',[-.04,10,.12],[-.02,14,.07]]);
+artery('LAD','LAD','Left anterior descending (LAD)',.04,[[-.02,14,.07],[.15,28,.05],[.4,32,.05],[.7,34,.05],[1.0,36,.05],[1.3,42,.05],[1.5,60,.05]]);
+artery('D1','LAD','First diagonal (D1)',.026,[[.3,32,.05],[.5,10,.05],[.8,352,.05],[1.0,340,.05]]);
+artery('D2','LAD','Second diagonal (D2)',.02,[[.65,35,.05],[.85,15,.05],[1.1,0,.05]]);
+artery('LCX','LCx','Left circumflex (LCx)',.04,[[-.02,14,.07],[0,340,.1],[0,310,.08],[.03,285,.07],[.06,255,.07],[.1,225,.07],[.12,200,.07]]);
+artery('OM1','LCx','Obtuse marginal 1 (OM1)',.028,[[.02,300,.07],[.3,295,.05],[.6,290,.05],[.9,285,.05],[1.15,290,.05]]);
+artery('OM2','LCx','Obtuse marginal 2 (OM2)',.022,[[.05,250,.07],[.4,245,.05],[.8,240,.05]]);
+artery('RCA','RCA','Right coronary artery (RCA)',.042,['AO',[-.06,355,.22],[-.04,40,.42],[-.01,90,.52],[.02,125,.47],[.04,150,.3]]);
+artery('AM','RCA','Acute marginal (RV branch)',.026,[[-.01,85,.52],[.3,95,.4],[.6,108,.22],[.9,118,.1]]);
+artery('PDA','RCA','Posterior descending (PDA)',.032,[[.04,150,.3],[.2,150,.08],[.5,150,.05],[.8,150,.05],[1.1,150,.05]]);
+artery('PLV','RCA','Posterolateral branch (PLV)',.024,[[.04,150,.3],[.15,190,.07],[.4,215,.05],[.7,225,.05]]);
+
+/* Occlusion markers */
+const occMarker = new THREE.Mesh(new THREE.SphereGeometry(.09,20,16),new THREE.MeshBasicMaterial({color:'#ff2222'}));
+occMarker.visible=false; occMarker.renderOrder=11; corGroup.add(occMarker);
+const occPos={LAD:surf(.12,29,.07),LCx:surf(.0,335,.1),RCA:surf(.02,125,.47),RCAp:surf(-.05,20,.28)};
+
+/* Chest wall */
+const A_=1.7,B_=1.25;
+const chest=new THREE.Group(); scene.add(chest);
+const torso=new THREE.Mesh(new THREE.CylinderGeometry(1,1,3.8,64,1,true),new THREE.MeshStandardMaterial({color:'#6b87a8',transparent:true,opacity:.1,side:THREE.DoubleSide,depthWrite:false,roughness:.9}));
+torso.scale.set(A_,1,B_); torso.position.y=.1; chest.add(torso);
+for(let y=1.4;y>=-.75;y-=.27){ const pts=[]; for(let i=0;i<=96;i++){const t=i/96*Math.PI*2;pts.push(new V3(Math.sin(t)*A_*.985,y,Math.cos(t)*B_*.985));}
+  chest.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:'#7e97b6',transparent:true,opacity:.22}))); }
+const stern=new THREE.Mesh(new THREE.BoxGeometry(.2,1.5,.05),new THREE.MeshStandardMaterial({color:'#9fb2c8',transparent:true,opacity:.28,depthWrite:false}));
+stern.position.set(0,.7,B_-.06); chest.add(stern);
+const lblR=label('Pt R',{w:2,s:.3,depth:false}); lblR.position.set(-2.4,.2,0); chest.add(lblR);
+const lblL=label('Pt L',{w:2,s:.3,depth:false}); lblL.position.set(2.4,.2,0); chest.add(lblL);
+
+/* ECG electrodes */
+function chestPt(psi,y,off=.03){ const p=psi*Math.PI/180, x=A_*Math.sin(p), z=B_*Math.cos(p);
+  return new V3(x,y,z).addScaledVector(new V3(x/(A_*A_),0,z/(B_*B_)).normalize(),off); }
+const LEADS=[
+ {id:'V1', grp:'pre', psi:-8, y:.35, place:'4th intercostal space, right sternal border', view:'Septum / RV', segs:[2,3,8,9]},
+ {id:'V2', grp:'pre', psi:8,  y:.35, place:'4th intercostal space, left sternal border', view:'Septum / anterior RV–LV', segs:[2,3,8,9,14]},
+ {id:'V3', grp:'pre', psi:21, y:.05, place:'Midway between V2 and V4', view:'Anterior wall', segs:[1,7,13,14]},
+ {id:'V4', grp:'pre', psi:35, y:-.25,place:'5th intercostal space, mid-clavicular line', view:'Anterior wall / apex', segs:[1,7,13,17]},
+ {id:'V5', grp:'pre', psi:60, y:-.25,place:'Anterior axillary line, level of V4', view:'Anterolateral wall', segs:[6,12,16]},
+ {id:'V6', grp:'pre', psi:90, y:-.25,place:'Mid-axillary line, level of V4', view:'Lateral wall', segs:[5,6,11,12,16]},
+ {id:'V3R',grp:'rt', psi:-21,y:.05, place:'Right-chest mirror of V3', view:'Right ventricle', rv:true, segs:[]},
+ {id:'V4R',grp:'rt', psi:-35,y:-.25,place:'5th ICS, right mid-clavicular line (key lead for RV infarct)', view:'Right ventricle', rv:true, segs:[]},
+ {id:'V5R',grp:'rt', psi:-60,y:-.25,place:'Right anterior axillary line, level of V4R', view:'Right ventricle (lateral)', rv:true, segs:[]},
+ {id:'V6R',grp:'rt', psi:-90,y:-.25,place:'Right mid-axillary line, level of V4R', view:'Right ventricle (lateral)', rv:true, segs:[]},
+ {id:'V7', grp:'post',psi:115,y:-.25,place:'Posterior axillary line, level of V6', view:'Posterior (basal inferolateral) wall', segs:[5,11]},
+ {id:'V8', grp:'post',psi:140,y:-.25,place:'Tip of the scapula, level of V6', view:'Posterior wall', segs:[4,5,10,11]},
+ {id:'V9', grp:'post',psi:160,y:-.25,place:'Left paraspinal border, level of V6', view:'Posterior (basal inferior) wall', segs:[4,10]},
+ {id:'I',   grp:'limb',view:'High lateral / lateral',place:'Limb lead (RA → LA)',segs:[6,12]},
+ {id:'II',  grp:'limb',view:'Inferior wall',place:'Limb lead (RA → LL)',segs:[3,4,10,15]},
+ {id:'III', grp:'limb',view:'Inferior wall',place:'Limb lead (LA → LL)',segs:[4,10,15]},
+ {id:'aVR', grp:'limb',view:'Right shoulder → LV cavity (no wall)',place:'Augmented limb lead',segs:[]},
+ {id:'aVL', grp:'limb',view:'High lateral wall',place:'Augmented limb lead',segs:[1,6]},
+ {id:'aVF', grp:'limb',view:'Inferior wall',place:'Augmented limb lead',segs:[3,4,9,10,15]},
+];
+const leadById={}; LEADS.forEach(l=>leadById[l.id]=l);
+const ecgGroup=new THREE.Group(); scene.add(ecgGroup);
+LEADS.filter(l=>l.psi!==undefined).forEach(l=>{
+  const col=l.rv?'#4cc2ff':l.grp==='post'?'#ffd24c':'#46d39a'; l.col=col;
+  const e=new THREE.Mesh(new THREE.SphereGeometry(.075,18,14),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.5}));
+  e.position.copy(chestPt(l.psi,l.y,.04)); e.userData={type:'lead',id:l.id}; l.mesh=e; ecgGroup.add(e); pickables.push(e);
+  const lb=label(l.id,{w:2,s:.22,depth:false,fg:col}); lb.position.copy(chestPt(l.psi,l.y,.2)); lb.position.y+=.14; ecgGroup.add(lb);
+});
+const leadRay=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new V3(),new V3()]),new THREE.LineDashedMaterial({color:'#ffffff',dashSize:.08,gapSize:.05,transparent:true,opacity:.8}));
+leadRay.visible=false; scene.add(leadRay);
+
+/* ───────── state ───────── */
+const S={color:'segment',op:.95,sel:null,hover:null,occ:'none',beat:true,nums:true};
+const OCC={ // affected segments, RV, ST pattern (+ elevation / − depression)
+  LAD:{terr:['LAD'],rv:false,st:{V1:1,V2:1.3,V3:1.3,V4:1,V5:.5,V6:.2,I:.4,aVL:.6,II:-.3,III:-.5,aVF:-.4}},
+  LCx:{terr:['LCx'],rv:false,st:{I:.5,aVL:.6,V5:.7,V6:.7,V7:1,V8:1,V9:1,V1:-.7,V2:-.8,V3:-.5,III:-.2}},
+  RCA:{terr:['RCA'],rv:false,st:{II:.8,III:1.2,aVF:1,V7:.4,V8:.4,V9:.3,I:-.4,aVL:-.7}},
+  RCAp:{terr:['RCA'],rv:true,st:{II:.8,III:1.3,aVF:1,V1:.6,V3R:1,V4R:1.2,V5R:1,V6R:.7,I:-.4,aVL:-.8}},
+};
+const occGroup = o => o==='RCAp'?'RCA':o;
+const stOf = id => (S.occ!=='none' && OCC[S.occ].st[id]) || 0;
+const ischemic = s => S.occ!=='none' && OCC[S.occ].terr.includes(s.terr);
+
+const GROUP_INFO={
+ LM:{t:'Left main coronary artery',d:'Arises from the left coronary sinus and bifurcates into LAD and LCx.',segs:[], leads:'—'},
+ LAD:{t:'Left anterior descending (LAD)',d:'Runs in the anterior interventricular groove. Supplies the anterior LV wall, anterior two-thirds of the septum and the apex.',segs:[1,2,7,8,13,14,17],leads:'V1–V4 (± I, aVL)'},
+ LCx:{t:'Left circumflex (LCx)',d:'Runs in the left AV groove. Supplies the lateral wall and, in left-dominant hearts, the inferior wall.',segs:[5,6,11,12,16],leads:'I, aVL, V5–V6, V7–V9'},
+ RCA:{t:'Right coronary artery (RCA)',d:'Runs in the right AV groove to the crux; supplies RV, SA/AV nodes (usually) and inferior wall via PDA (right dominance ≈ 85%).',segs:[3,4,9,10,15],leads:'II, III, aVF, V3R–V6R (proximal)'},
+};
+const segLeads = id => LEADS.filter(l=>l.segs.includes(id)).map(l=>l.id);
+
+/* ───────── ECG synthesis ───────── */
+// [P, Q, R, S, T]
+const MORPH={V1:[.08,0,.25,1.0,.1],V2:[.1,0,.4,1.1,.35],V3:[.1,.02,.7,.8,.4],V4:[.1,.05,1.0,.5,.4],V5:[.1,.12,1.2,.2,.35],V6:[.1,.15,1.0,.1,.3],
+ V3R:[.1,0,.2,.8,.2],V4R:[.1,0,.3,.6,.2],V5R:[.1,0,.35,.4,.2],V6R:[.1,0,.3,.25,.2],
+ V7:[.1,.1,.9,.1,.3],V8:[.1,.08,.7,.1,.28],V9:[.1,.05,.5,.1,.25],
+ I:[.1,.1,.8,.1,.3],II:[.15,.05,1.1,.1,.4],III:[.1,.05,.5,.2,.15],aVR:[-.1,0,.1,.9,-.3],aVL:[.05,.05,.5,.1,.1],aVF:[.12,.05,.8,.1,.3]};
+const g=(x,c,w)=>Math.exp(-.5*((x-c)/w)**2);
+const sm=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);};
+function ecgVal(x,m,st){
+  const hyper=1+Math.abs(st)*.6;
+  return m[0]*g(x,.14,.03) - m[1]*g(x,.255,.008) + m[2]*g(x,.285,.011) - m[3]*g(x,.315,.011)
+    + st*.35*(sm(.33,.38,x)*(1-sm(.6,.68,x))) + m[4]*hyper*g(x,.5,.05);
+}
+
+/* ───────── UI ───────── */
+const GRP={pre:'g_pre',rt:'g_rt',post:'g_post',limb:'g_limb'};
+LEADS.forEach(l=>{ const b=document.createElement('button'); b.className='chip'; b.textContent=l.id; b.dataset.id=l.id;
+  b.innerHTML=l.id+'<span class="st"></span>'; b.onclick=()=>select({type:'lead',id:l.id}); l.btn=b; $(GRP[l.grp]).appendChild(b); });
+const VIEWS={Front:[.12,.12,1],'Left':[1,.1,.15],Back:[0,.1,-1],Top:[.05,1,.12],Apex:axisA.toArray(),Base:axisA.clone().negate().toArray()};
+Object.entries(VIEWS).forEach(([k,d])=>{ const b=document.createElement('button'); b.textContent=k+(k==='Apex'?' view':'');
+  b.onclick=()=>flyTo(new V3(...d).normalize()); $('views').appendChild(b); });
+let fly=null;
+function flyTo(dir){ const dist=camera.position.distanceTo(controls.target);
+  fly={t0:performance.now(),from:camera.position.clone(),to:controls.target.clone().addScaledVector(dir,dist)}; }
+$('colorBtns').onclick=e=>{ const m=e.target.dataset.m; if(!m)return; S.color=m;
+  [...$('colorBtns').children].forEach(b=>b.classList.toggle('on',b===e.target)); renderLegend(); };
+$('opac').oninput=e=>S.op=e.target.value/100;
+$('occ').onchange=e=>{ S.occ=e.target.value; refreshOcc(); renderInfo(); };
+const bind=(id,fn)=>$(id).onchange=e=>fn(e.target.checked);
+bind('L_lv',v=>lvGroup.visible=v); bind('L_nums',v=>{S.nums=v;numGroup.visible=v&&$('L_lv').checked;});
+$('L_lv').addEventListener('change',e=>numGroup.visible=e.target.checked&&S.nums);
+bind('L_cor',v=>corGroup.visible=v); bind('L_rv',v=>anaGroup.visible=v);
+bind('L_ecg',v=>ecgGroup.visible=v); bind('L_chest',v=>chest.visible=v); bind('L_beat',v=>S.beat=v);
+
+function refreshOcc(){
+  const o=S.occ, grp=o==='none'?null:occGroup(o);
+  arteries.forEach(a=>{ const dim=grp&&(a.userData.group===grp);
+    a.material.color.set(dim?'#4a4a4a':ART_COL[a.userData.group]); a.material.emissive.set(dim?'#000':ART_COL[a.userData.group]); });
+  occMarker.visible=!!grp; if(grp) occMarker.position.copy(occPos[o]);
+  LEADS.forEach(l=>{ const s=stOf(l.id), el=l.btn.querySelector('.st');
+    el.textContent=s>0?'↑':s<0?'↓':''; el.className='st '+(s>0?'up':s<0?'dn':''); });
+}
+function renderLegend(){
+  const items = S.color==='segment' ? [['Basal','hsl(10,68%,58%)'],['Mid','hsl(10,68%,50%)'],['Apical','hsl(10,68%,42%)'],['Hue = direction around the wall','#888']]
+   : S.color==='territory' ? [['LAD',ART_COL.LAD],['LCx',ART_COL.LCx],['RCA',ART_COL.RCA]] : [];
+  $('legend').innerHTML=items.map(([n,c])=>`<span><i style="background:${c}"></i>${n}</span>`).join('');
+}
+function select(sel){ S.sel=(S.sel&&sel&&S.sel.type===sel.type&&S.sel.id===sel.id)?null:sel;
+  LEADS.forEach(l=>l.btn.classList.toggle('on',S.sel&&S.sel.type==='lead'&&S.sel.id===l.id));
+  const l=S.sel&&S.sel.type==='lead'&&leadById[S.sel.id];
+  if(l&&l.mesh){ const c=TARGET.clone(); leadRay.geometry.setFromPoints([l.mesh.position.clone(),c]); leadRay.computeLineDistances(); leadRay.visible=true; }
+  else leadRay.visible=false;
+  renderInfo(); }
+function hlSet(){ const s=S.sel; if(!s)return new Set();
+  if(s.type==='seg')return new Set([s.id]);
+  if(s.type==='lead')return new Set(leadById[s.id].segs);
+  if(s.type==='art'){ const g=s.group; return new Set(segs.filter(x=>x.terr===g).map(x=>x.id)); }
+  return new Set(); }
+const tag=(t,c)=>`<span class="tag" style="${c?`border-color:${c};color:${c}`:''}">${t}</span>`;
+function renderInfo(){
+  const s=S.sel; let h='';
+  if(!s){ h=`<b class="t">Select something</b><div class="sub">Click an AHA segment (3D or bullseye), an artery, or an ECG electrode.</div>`;
+    if(S.occ!=='none'){ const o=OCC[S.occ]; h+=`<div>Occlusion: <b>${$('occ').selectedOptions[0].text}</b><br>Ischaemic segments: ${segs.filter(ischemic).map(x=>x.id).join(', ')}${o.rv?'<br>+ right ventricle':''}</div>`; } }
+  else if(s.type==='seg'){ const g=segById(s.id);
+    h=`<b class="t">Segment ${g.id} – ${g.full}</b><br>${tag(g.terr+' territory',ART_COL[g.terr])}${ischemic(g)?tag('ischaemic','#ff5a4f'):''}
+    <div style="margin-top:6px"><span class="sub">Seen by leads:</span><br>${segLeads(g.id).map(x=>tag(x)).join('')||'—'}</div>`; }
+  else if(s.type==='lead'){ const l=leadById[s.id]; const st=stOf(l.id);
+    h=`<b class="t">Lead ${l.id}</b> ${st>0?tag('ST elevation','#ff5a4f'):st<0?tag('ST depression (reciprocal)','#5aa9ff'):''}<br>
+    <span class="sub">${l.place}</span><div style="margin-top:4px">Views: <b>${l.view}</b></div>
+    <div style="margin-top:4px">${l.segs.length?'AHA segments: '+l.segs.map(x=>tag(x,ART_COL[segById(x).terr])).join(''):''}${l.rv?'RV — proximal RCA occlusion / RV infarct':''}</div>`; }
+  else if(s.type==='art'){ const i=GROUP_INFO[s.group];
+    h=`<b class="t">${s.name}</b><br>${tag(i.t,ART_COL[s.group])}<div style="margin:5px 0">${i.d}</div>
+    ${i.segs.length?`<div>Segments: ${i.segs.map(x=>tag(x,ART_COL[s.group])).join('')}</div><div>Leads: <b>${i.leads}</b></div>`:''}`; }
+  else if(s.type==='ana') h=`<b class="t">${s.name}</b>`;
+  $('info').innerHTML=h;
+}
+
+/* ───────── picking ───────── */
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2(); let down=null;
+function pick(ev){ const r=renderer.domElement.getBoundingClientRect();
+  mouse.set((ev.clientX-r.left)/r.width*2-1,-((ev.clientY-r.top)/r.height)*2+1); ray.setFromCamera(mouse,camera);
+  const vis=pickables.filter(o=>{let p=o;while(p){if(!p.visible)return false;p=p.parent;}return true;});
+  const h=ray.intersectObjects(vis,false)[0]; return h&&h.object.userData; }
+renderer.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+renderer.domElement.addEventListener('pointerup',e=>{ if(!down)return; const m=Math.hypot(e.clientX-down[0],e.clientY-down[1]); down=null;
+  if(m<5){ const u=pick(e); if(u&&(u.type==='seg'||u.type==='lead'||u.type==='art'||u.type==='ana')) select({...u}); else if(!u&&S.sel) select(S.sel); } });
+let lastPick=0; renderer.domElement.addEventListener('pointermove',e=>{ if(e.timeStamp-lastPick<50)return; lastPick=e.timeStamp; const u=pick(e), tip=$('tip');
+  S.hover=u&&u.type==='seg'?u.id:null;
+  if(u){ const n=u.type==='seg'?`${u.id} · ${segById(u.id).full}`:u.type==='lead'?`Lead ${u.id}`:u.name; tip.textContent=n;
+    const r=stage.getBoundingClientRect(); tip.style.left=(e.clientX-r.left+14)+'px'; tip.style.top=(e.clientY-r.top+14)+'px'; tip.style.display='block'; renderer.domElement.style.cursor='pointer'; }
+  else{ tip.style.display='none'; renderer.domElement.style.cursor='grab'; } });
+renderer.domElement.addEventListener('pointerleave',()=>{S.hover=null;$('tip').style.display='none';});
+
+/* ───────── bullseye ───────── */
+const bull=$('bull'), bctx=bull.getContext('2d');
+const RINGS=[[.74,1],[.48,.74],[.22,.48],[0,.22]];
+let bHover=null;
+function bullSeg(x,y){ const r=bull.getBoundingClientRect(), cx=r.width/2, dx=x-cx, dy=y-cx, rad=Math.hypot(dx,dy)/(cx*.94);
+  if(rad>1)return null; const ring=RINGS.findIndex(q=>rad>=q[0]&&rad<=q[1]); if(ring<0)return null;
+  let phi=Math.atan2(-dx,-dy)*180/Math.PI; phi=(phi+360)%360;
+  if(ring===3)return 17;
+  if(ring<2){ return (ring*6)+Math.round(phi/60)%6+1; }
+  return 13+Math.round(phi/90)%4; }
+bull.addEventListener('click',e=>{const r=bull.getBoundingClientRect();const id=bullSeg(e.clientX-r.left,e.clientY-r.top);if(id)select({type:'seg',id});});
+bull.addEventListener('pointermove',e=>{const r=bull.getBoundingClientRect();bHover=bullSeg(e.clientX-r.left,e.clientY-r.top);});
+bull.addEventListener('pointerleave',()=>bHover=null);
+function drawBull(hl,t){
+  const W=bull.width, c=W/2, Rr=c*.94; bctx.clearRect(0,0,W,W);
+  const th=p=>-Math.PI/2-p*Math.PI/180;
+  segs.forEach(s=>{ const r0=RINGS[s.ring][0]*Rr, r1=RINGS[s.ring][1]*Rr; bctx.beginPath();
+    if(s.id===17) bctx.arc(c,c,r1,0,Math.PI*2);
+    else{ bctx.arc(c,c,r1,th(s.p0),th(s.p1),true); bctx.arc(c,c,r0,th(s.p1),th(s.p0),false); bctx.closePath(); }
+    const col=segColor(s); bctx.fillStyle='#'+col.getHexString(); bctx.fill();
+    if(hl.has(s.id)||bHover===s.id){ bctx.fillStyle=`rgba(255,255,255,${bHover===s.id?.3:.2+.12*Math.sin(t*5)})`; bctx.fill(); }
+    bctx.lineWidth=hl.has(s.id)?4:2; bctx.strokeStyle=hl.has(s.id)?'#fff':'#0b0f15'; bctx.stroke();
+    const mp=(s.p0+s.p1)/2, mr=s.id===17?0:(r0+r1)/2; bctx.fillStyle='#fff'; bctx.font='bold 26px system-ui'; bctx.textAlign='center'; bctx.textBaseline='middle';
+    bctx.fillText(s.id,c-Math.sin(mp*Math.PI/180)*mr,c-Math.cos(mp*Math.PI/180)*mr); });
+  bctx.fillStyle='#8b9bb0'; bctx.font='20px system-ui';
+  bctx.fillText('Anterior',c,12); bctx.fillText('Inferior',c,W-10);
+  bctx.textAlign='left'; bctx.fillText('Septal',4,c); bctx.textAlign='right'; bctx.fillText('Lateral',W-4,c);
+}
+const HEART='#c4566b', ISCH=new THREE.Color('#7a0f1c');
+function segColor(s){ let c = S.color==='segment'?s.segCol:S.color==='territory'?s.terrCol:new THREE.Color(HEART);
+  if(ischemic(s)) c=ISCH; return c; }
+
+/* ───────── ECG trace ───────── */
+const ecg=$('ecg'), ectx=ecg.getContext('2d');
+function fit(c){ const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio,2); if(c.width!==Math.round(r.width*d)){c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);} }
+function drawEcg(beats){
+  const RR=60/S.bpm; fit(ecg); const W=ecg.width,H=ecg.height,d=ecg.width/ecg.getBoundingClientRect().width;
+  ectx.fillStyle='#0a1118'; ectx.fillRect(0,0,W,H);
+  ectx.strokeStyle='#14222f'; ectx.lineWidth=1; ectx.beginPath();
+  for(let x=0;x<W;x+=W/60){ectx.moveTo(x,0);ectx.lineTo(x,H);} for(let y=0;y<H;y+=W/60){ectx.moveTo(0,y);ectx.lineTo(W,y);} ectx.stroke();
+  ectx.strokeStyle='#1d3345'; ectx.beginPath(); for(let x=0;x<W;x+=W/12){ectx.moveTo(x,0);ectx.lineTo(x,H);} ectx.stroke();
+  const id = S.sel&&S.sel.type==='lead'?S.sel.id:'V4'; const m=MORPH[id], st=stOf(id), win=2.6;
+  ectx.strokeStyle=st>0?'#ff7a70':st<0?'#7ab8ff':'#46d39a'; ectx.lineWidth=2*d; ectx.beginPath();
+  const base=H*.62, amp=H*.34;
+  const cx=S.mode==='sweep'?(sweepT/win%1)*W:W, gap=S.mode==='sweep'?W*.04:0; let pen=false;
+  for(let i=0;i<=W;i+=2){
+    let age; if(S.mode==='sweep'){ const dx=(i<=cx)?cx-i:cx-i+W; if(i>cx&&i<cx+gap){pen=false;continue;} age=dx/W*win; } else age=(1-i/W)*win;
+    const ph=(((beats-age/RR)%1)+1)%1, y=base-ecgVal(ph,m,st)*amp;
+    if(pen)ectx.lineTo(i,y); else{ectx.moveTo(i,y);pen=true;} }
+  ectx.stroke();
+  if(S.mode==='sweep'){ ectx.fillStyle='#fff'; ectx.beginPath(); ectx.arc(cx,base-ecgVal((((beats)%1)+1)%1,m,st)*amp,4*d,0,7); ectx.fill(); }
+  ectx.fillStyle='#e6edf6'; ectx.font=`bold ${14*d}px system-ui`; ectx.fillText('Lead '+id+(S.sel&&S.sel.type==='lead'?'':'  (select a lead)'),8*d,18*d);
+  if(st){ ectx.fillStyle=st>0?'#ff7a70':'#7ab8ff'; ectx.fillText(st>0?'ST ↑':'ST ↓',W-60*d,18*d); }
+  ectx.fillStyle='#8b9bb0'; ectx.font=`${11*d}px system-ui`; ectx.fillText(`25 mm/s · ${S.bpm} bpm (schematic)${S.play?'':' · paused'}`,8*d,H-8*d);
+}
+
+/* ───────── main loop ───────── */
+function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+addEventListener('resize',resize); resize();
+S.bpm=72; S.play=true; S.mode='scroll';
+let beats=0, sweepT=0, lastNow=0, lastDraw=0;
+function setBpm(v){ S.bpm=+v; $('bpm').value=v; $('bpmOut').textContent=v;
+  const rr=60000/v; $('rrout').textContent=`RR interval ${Math.round(rr)} ms`+(v<60?' · bradycardia range':v>100?' · tachycardia range':' · normal range'); }
+$('bpm').oninput=e=>setBpm(e.target.value);
+document.querySelectorAll('[data-bpm]').forEach(b=>b.onclick=()=>setBpm(b.dataset.bpm));
+$('play').onclick=()=>{ S.play=!S.play; $('play').textContent=S.play?'❚❚ Pause':'▶ Play'; $('play').classList.toggle('on',S.play); };
+$('mode').onclick=()=>{ S.mode=S.mode==='scroll'?'sweep':'scroll'; $('mode').textContent='Mode: '+(S.mode==='scroll'?'Scroll':'Sweep'); };
+setBpm(72);
+function frameLoop(now){
+  requestAnimationFrame(frameLoop); const t=now/1000, dt=Math.min(.1,Math.max(0,(now-lastNow)/1000)); lastNow=now; if(!stage.offsetParent) return;
+  if(S.play){ beats+=dt*S.bpm/60; sweepT+=dt; }
+  const ph=((beats%1)+1)%1;
+  if(fly){ const k=Math.min(1,(now-fly.t0)/700), e=k*k*(3-2*k); camera.position.lerpVectors(fly.from,fly.to,e); if(k>=1)fly=null; }
+  controls.update();
+  heart.scale.setScalar(S.beat?1-.035*g(ph,.4,.07):1);
+  const hl=hlSet(); const lead=S.sel&&S.sel.type==='lead'&&leadById[S.sel.id];
+  segs.forEach(s=>{ const m=s.mesh.material, isch=ischemic(s), h=hl.has(s.id), hv=S.hover===s.id||bHover===s.id;
+    m.color.copy(segColor(s)); m.opacity=S.op; m.depthWrite=S.op>.95;
+    if(isch){ m.emissive.set('#ff1a1a'); m.emissiveIntensity=.25+.2*Math.sin(t*5); }
+    else if(h||hv){ m.emissive.copy(m.color); m.emissiveIntensity=hv?.6:.4+.15*Math.sin(t*5); }
+    else m.emissiveIntensity=0;
+    if(isch&&(h||hv)){ m.emissive.set('#ff6a6a'); m.emissiveIntensity=.6; } });
+  const rvHl=(lead&&lead.rv)||(S.occ==='RCAp');
+  RV.material.color.set(rvHl?'#4cc2ff':'#b9708a'); RV.material.opacity=S.op<.95?S.op*.45:(rvHl?.55:.42);
+  if(S.occ==='RCAp'){ RV.material.color.set('#ff4d5a'); }
+  LEADS.forEach(l=>{ if(l.mesh) l.mesh.scale.setScalar(S.sel&&S.sel.type==='lead'&&S.sel.id===l.id?1.7+.2*Math.sin(t*6):1); });
+  if(occMarker.visible) occMarker.scale.setScalar(1+.35*Math.sin(t*6));
+  arteries.forEach(a=>a.scale.setScalar(1));
+  renderer.render(scene,camera);
+  if(now-lastDraw>33){lastDraw=now;drawBull(hl,t);drawEcg(beats);}
+}
+refreshOcc(); renderLegend(); renderInfo(); requestAnimationFrame(frameLoop);
+window.__heart={select,S,flyTo}; window.__heartResize=resize;
+};
+
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>{
+  const w=b.dataset.tab==='heart'; document.querySelector('.container').classList.toggle('wide',w); document.body.classList.toggle('hwide',w);
+  requestAnimationFrame(()=>window.__heartResize&&w&&window.__heartResize());
+}));
+document.addEventListener('fullscreenchange',()=>setTimeout(()=>window.__heartResize&&window.__heartResize(),100));
+// Start the 3D scene the first time the tab is opened (it needs a visible, sized container)
+document.querySelector('.tab-btn[data-tab="heart"]').addEventListener('click', () => {
+  if (!window.__heartStarted) {
+    if (typeof THREE === 'undefined') { document.getElementById('hint').textContent = 'ต้องเชื่อมต่ออินเทอร์เน็ตเพื่อโหลด three.js (3D engine)'; return; }
+    window.__heartStarted = true; window.initHeart();
+    const fs = document.createElement('button'); fs.textContent = '⛶ Fullscreen';
+    fs.onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.getElementById('heart').requestFullscreen().catch(()=>{});
+    document.getElementById('views').appendChild(fs);
+  }
+  requestAnimationFrame(() => window.__heartResize && window.__heartResize());
+});
 </script>
 </body>
 </html>
