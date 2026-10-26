@@ -1240,7 +1240,7 @@
     const vialsExact = totalMg / 6;       // ขวดจริง (ทศนิยม)
     const vialsCeil = Math.ceil(vialsExact); // ขวดที่ต้องเปิด
     const drugVol = vialsExact * 2;       // mL ของยาที่ดูดมาใช้จริง
-    const nssVol = 40 - drugVol;          // เติม NSS ให้ครบ 40 mL
+    const nssVol = 42 - drugVol;          // เติม NSS ให้ครบ 42 mL
 
     document.getElementById('ade_output').innerHTML = `
       <div class="result-item"><span class="result-label">Adenosine (${factor} × ${w} × ${time})</span><span class="result-value">${totalMg.toFixed(2)}<span class="unit">mg</span></span></div>
@@ -1248,7 +1248,7 @@
       <div class="result-item"><span class="result-label">${L('Vials to open', 'จำนวนขวดที่ต้องเปิด')}</span><span class="result-value">${vialsCeil}<span class="unit">${L('vials', 'ขวด')}</span></span></div>
       <div class="result-item"><span class="result-label">${L('Adenosine volume', 'ปริมาตรยา Adenosine')}</span><span class="result-value">${drugVol.toFixed(2)}<span class="unit">mL</span></span></div>
       <div class="result-item"><span class="result-label">${L('Add NSS', 'เติม NSS')}</span><span class="result-value">${nssVol.toFixed(2)}<span class="unit">mL</span></span></div>
-      <div class="result-item"><span class="result-label">${L('Total volume', 'ปริมาตรรวม')}</span><span class="result-value">40.00<span class="unit">mL</span></span></div>`;
+      <div class="result-item"><span class="result-label">${L('Total volume', 'ปริมาตรรวม')}</span><span class="result-value">42.00<span class="unit">mL</span></span></div>`;
     document.getElementById('ade_result').classList.add('show');
   }
 
